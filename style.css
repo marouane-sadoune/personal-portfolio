@@ -123,18 +123,23 @@ nav ul li a:hover::after {
   --text-muted: #94a3b8;
 }
 
+/* Update these in your style.css */
 .tech-section {
   width: 100%;
-  padding: 20px 0;
+  padding: 60px 0; /* More padding for a cleaner look */
+  background-color: #080808; 
   text-align: center;
-  overflow: hidden; /* Important for the marquee */
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 173, 162, 0.1); /* Subtle top border */
 }
 
 .tech-title {
   color: var(--text-muted);
   font-size: 14px;
-  margin-bottom: 40px;
-  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  opacity: 0.6;
 }
 
 .marquee-container {
@@ -142,39 +147,44 @@ nav ul li a:hover::after {
   position: relative;
   display: flex;
   overflow: hidden;
-  /* Creates the "fade to black" effect on the sides */
+  /* This creates the professional "fade" on both sides */
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 20%,
-    black 80%,
+    black 15%,
+    black 85%,
     transparent
   );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    black 20%,
-    black 80%,
+    black 15%,
+    black 85%,
     transparent
   );
 }
 
 .marquee-content {
   display: flex;
-  gap: 50px; /* Space between names */
-  padding: 10px 0;
-  animation: scroll 30s linear infinite;
+  gap: 60px; /* Space between the names */
+  padding: 20px 0;
+  animation: scroll 40s linear infinite; /* Slower, smoother scroll */
   white-space: nowrap;
 }
 
 .marquee-content span {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--text-muted);
-  transition: color 0.3s ease;
-  cursor: default;
+  font-size: 22px;
+  font-weight: 600;
+  color: #444; /* Darker grey by default */
+  transition: all 0.4s ease;
 }
 
+/* Hover effect for individual tech names */
+.marquee-content span:hover {
+  color: #00ADA2; /* Your primary cyan color */
+  text-shadow: 0 0 15px rgba(0, 173, 162, 0.5);
+  transform: scale(1.1);
+}
 /* Hover effect to highlight tech */
 .marquee-content span:hover {
   color: var(--accent-cyan);
@@ -842,7 +852,7 @@ h1 { font-size: 36px; margin: 10px 0; line-height: 1.1; }
     border-radius: 15px;
     transition: transform 0.5s; /* Preparation for hover effect */
 }
-.layer {
+/* .layer {
     position: absolute;
     top: 0;
     left: 0;
@@ -856,7 +866,7 @@ h1 { font-size: 36px; margin: 10px 0; line-height: 1.1; }
     align-items: flex-start;
     padding: 30px 20px;
     border-radius: 15px;
-}
+} */
 /* Subtle zoom effect on the image when hovering */
 .work:hover .work-front img {
     transform: scale(1.1);
@@ -870,11 +880,18 @@ h1 { font-size: 36px; margin: 10px 0; line-height: 1.1; }
     overflow: hidden;
     border-radius: 15px;
 }
-.layer h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-    font-weight: 600;
+
+.layer {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 20px;
+    backdrop-filter: blur(2px); /* Adds a subtle glass effect to the bottom */
 }
+
+.layer h3 {
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Makes text pop against the image */
+}
+
 .layer p {
     display: none;
 }

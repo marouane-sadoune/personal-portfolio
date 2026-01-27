@@ -832,7 +832,7 @@ h1 { font-size: 36px; margin: 10px 0; line-height: 1.1; }
     align-items: center;
     text-align: center;
 }
-/* Update this in your style.css */
+
 .work img {
     width: 100%;
     height: 100%;
@@ -855,6 +855,19 @@ h1 { font-size: 36px; margin: 10px 0; line-height: 1.1; }
     justify-content: flex-end;
     align-items: flex-start;
     padding: 30px 20px;
+    border-radius: 15px;
+}
+/* Subtle zoom effect on the image when hovering */
+.work:hover .work-front img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Add an inner shadow to the front of the card for depth */
+.work-front {
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    background: #111; /* Fallback color */
+    overflow: hidden;
     border-radius: 15px;
 }
 .layer h3 {

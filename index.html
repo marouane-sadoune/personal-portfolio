@@ -8,6 +8,38 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
   <!-- <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script> -->
+  <style>
+    /* GitHub icon on project cards */
+    .work {
+      position: relative;
+    }
+
+    .github-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 45px;
+      height: 45px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      font-size: 24px;
+      z-index: 20;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+    }
+
+    .github-icon:hover {
+      background: #333;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+  </style>
 
 </head>
 
@@ -329,6 +361,7 @@ To achieve this, I set up a virtualized laboratory using two virtual machines. O
       <p class="description">A selection of my recent work,from complex web application to innovative tool's that solve real-world problem.</p>
       <div class="work-list">
         <div class="work">
+          <a href="https://github.com/marouane-sadoune/gestrh" class="github-icon" target="_blank"><i class="fa-brands fa-github"></i></a>
           <div class="work-inner">
             <div class="work-front">
               <img src="images/Screen04.png" alt="" />
@@ -344,6 +377,7 @@ To achieve this, I set up a virtualized laboratory using two virtual machines. O
           </div>
         </div>
         <div class="work">
+          <a href="https://github.com/marouane-sadoune/" class="github-icon" target="_blank"><i class="fa-brands fa-github"></i></a>
           <div class="work-inner">
             <div class="work-front">
               <img src="images/das.png" alt="" />
@@ -360,6 +394,7 @@ To achieve this, I set up a virtualized laboratory using two virtual machines. O
         </div>
           
         <div class="work">
+          <a href="https://github.com/marouane-sadoune/" class="github-icon" target="_blank"><i class="fa-brands fa-github"></i></a>
           <div class="work-inner">
             <div class="work-front">
               <img src="images/work-3.png" alt="" />

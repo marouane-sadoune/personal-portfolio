@@ -810,7 +810,7 @@ h1 { font-size: 36px; margin: 10px 0; line-height: 1.1; }
     cursor: pointer;
     aspect-ratio: 9/12;
     perspective: 1000px;
-    border: 2px solid #00ADA2;
+    border: 1.5px solid #00ADA2;
     box-shadow: 0 0 20px rgba(0, 173, 162, 0.3), 0 8px 32px rgba(0, 173, 162, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: box-shadow 0.3s ease;
 }

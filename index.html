@@ -441,7 +441,24 @@ To achieve this, I set up a virtualized laboratory using two virtual machines. O
           <a href="images/Marouane_Sadoune_FullStack_C_ (7).pdf" class="btn btn3">Download CV</a>
         </div>
         <div class="contact-right">
-          <form name="submit-to-google-sheet" id="submit-to-google-sheet" method="post">
+          <form
+  action="https://formspree.io/f/mojnrpqy"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+        </div>
+        <form   action="https://formspree.io/f/mojnrpqy"
+         name="submit-to-google-sheet" id="submit-to-google-sheet" method="post">
             <p class="description">Whether you're looking build a new website, improve
               your existing, or bring a unique project to life, Im here </p>
             <p>
@@ -452,7 +469,6 @@ To achieve this, I set up a virtualized laboratory using two virtual machines. O
                 required></textarea>
               <button type="submit" class="btn btn4">Submit</button>
           </form>
-        </div>
       </div>
     </div>
   </div>

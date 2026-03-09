@@ -202,6 +202,18 @@ nav ul li a:hover::after {
   animation-play-state: paused;
 }
 
+  .marquee-content i {
+  font-size: 40px;
+  color: #444;
+  transition: all 0.4s ease;
+}
+
+.marquee-content i:hover {
+  color: #00ADA2;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(0,173,162,0.5));
+}
+
 /* -------------------- experience section -------------------- */
 
 :root {
@@ -890,21 +902,7 @@ h1 { font-size: 36px; margin: 10px 0; line-height: 1.1; }
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* .layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 30px 20px;
-    border-radius: 15px;
-} */
+
 /* Subtle zoom effect on the image when hovering */
 .work:hover .work-front img {
     transform: scale(1.1);

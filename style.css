@@ -201,7 +201,10 @@ nav ul li a:hover::after {
 .marquee-container:hover .marquee-content {
   animation-play-state: paused;
 }
-
+/* Pause on hover for better user experience */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
   .marquee-content i {
   font-size: 40px;
   color: #444;

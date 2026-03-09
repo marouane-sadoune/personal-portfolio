@@ -858,6 +858,38 @@ h1 { font-size: 36px; margin: 10px 0; line-height: 1.1; }
     border-radius: 15px;
     transition: transform 0.5s; /* Preparation for hover effect */
 }
+
+/* GitHub icon on project cards */
+.work {
+    position: relative;
+}
+
+.github-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 24px;
+    z-index: 20;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.github-icon:hover {
+    background: #333;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
 /* .layer {
     position: absolute;
     top: 0;

@@ -1,20 +1,7 @@
-// tab navigation
-var tablinks = document.getElementsByClassName("tab-links");
-var tabcontents = document.getElementsByClassName("tab-contents");
+// ==================== Auto Year ====================
+document.getElementById("year").textContent = new Date().getFullYear();
 
-function opentab(tabname, elem) {
-  for (var i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove("active-link");
-  }
-  for (var i = 0; i < tabcontents.length; i++) {
-    tabcontents[i].classList.remove("active-tab");
-  }
-  if (elem) elem.classList.add("active-link");
-  var target = document.getElementById(tabname);
-  if (target) target.classList.add("active-tab");
-}
-
-// side menu
+// ==================== Side Menu ====================
 var sidemenu = document.getElementById("sidemenu");
 
 function openmenu() {
@@ -24,53 +11,175 @@ function closemenu() {
   sidemenu.style.right = "-200px";
 }
 
-// form submission to Google Sheets via Apps Script
-const scriptURL = "https://script.google.com/macros/s/AKfycbzGdUWbkcMbVj5-So0gAh8BWn_L-uK6TPydqanarfoTQk91ny03aoiyJPPJxwME4ETMFA/exec";
-const form = document.getElementById("submit-to-google-sheet");
+// ==================== Sticky Navbar ====================
+const nav = document.querySelector("nav");
 
-if (!form) {
-  console.error('Form "submit-to-google-sheet" not found');
-} else {
-  // set action as a fallback for non-JS submissions and for visibility
-  form.action = scriptURL;
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+});
 
-  const submitButton = form.querySelector('button[type="submit"]');
+// ==================== Typed Text Effect ====================
+const typedElement = document.getElementById("typedText");
+const roles = [
+  "Full-Stack Developer",
+  "Problem Solver",
+  "Laravel Expert",
+  "React Developer",
+  "Team Player",
+];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100;
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (submitButton) submitButton.disabled = true;
-    try {
-      // Send as application/x-www-form-urlencoded to ensure Apps Script parses fields
-      const payload = new URLSearchParams(new FormData(form));
-      const res = await fetch(scriptURL, {
-        method: "POST",
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        body: payload,
+function typeText() {
+  const currentRole = roles[roleIndex];
+
+  if (isDeleting) {
+    typedElement.textContent = currentRole.substring(0, charIndex - 1);
+    charIndex--;
+    typingSpeed = 50;
+  } else {
+    typedElement.textContent = currentRole.substring(0, charIndex + 1);
+    charIndex++;
+    typingSpeed = 100;
+  }
+
+  if (!isDeleting && charIndex === currentRole.length) {
+    typingSpeed = 2000; // pause at end
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+    typingSpeed = 500; // pause before next word
+  }
+
+  setTimeout(typeText, typingSpeed);
+}
+
+typeText();
+
+// ==================== Scroll Animations ====================
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animated");
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+  observer.observe(el);
+});
+
+// ==================== Back to Top ====================
+const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 500) {
+    backToTopBtn.classList.add("visible");
+  } else {
+    backToTopBtn.classList.remove("visible");
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ==================== Dark/Light Mode ====================
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+
+// Check saved preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") {
+  body.classList.add("light-mode");
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("light-mode");
+  const isLight = body.classList.contains("light-mode");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
+
+// ==================== Mobile Tap-to-Flip ====================
+const isTouchDevice =
+  "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+if (isTouchDevice) {
+  document.querySelectorAll(".work").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      // Don't flip if clicking on a link or button
+      if (e.target.closest("a") || e.target.closest("button")) return;
+
+      // Close other flipped cards
+      document.querySelectorAll(".work.flipped").forEach((other) => {
+        if (other !== card) other.classList.remove("flipped");
       });
 
-      const text = await res.text();
-      console.log('Response status:', res.status, 'body:', text);
-      if (!res.ok) throw new Error('Network response was not ok: ' + res.status + ' - ' + text);
-      alert('Message sent — thank you!');
-      form.reset();
-    } catch (err) {
-      console.error("Error sending form:", err);
-      alert('Error sending message: ' + (err.message || err));
-    } finally {
-      if (submitButton) submitButton.disabled = false;
-    }
+      card.classList.toggle("flipped");
+    });
   });
 }
 
-// Toggle tech tags visibility
+// ==================== Toggle Tech Tags ====================
 function toggleTechTags(element) {
-  const techOverlap = element.closest('.tech-overlap');
-  techOverlap.classList.toggle('expanded');
-  
-  // Change text based on state
-  if (techOverlap.classList.contains('expanded')) {
-    element.textContent = 'Less';
+  const techOverlap = element.closest(".tech-overlap");
+  techOverlap.classList.toggle("expanded");
+
+  if (techOverlap.classList.contains("expanded")) {
+    element.textContent = "Less";
   } else {
-    element.textContent = '+7';
+    element.textContent = "+7";
   }
+}
+
+// ==================== Contact Form (Formspree) ====================
+const form = document.getElementById("contact-form");
+const formMessage = document.getElementById("formMessage");
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formMessage.className = "form-message";
+    formMessage.style.display = "none";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        formMessage.textContent =
+          "✓ Message sent successfully! I'll get back to you soon.";
+        formMessage.className = "form-message success";
+        form.reset();
+      } else {
+        throw new Error("Server error");
+      }
+    } catch (err) {
+      formMessage.textContent =
+        "✗ Something went wrong. Please try again or email me directly.";
+      formMessage.className = "form-message error";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
 }

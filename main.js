@@ -1,3 +1,6 @@
+// Mark JS as loaded so animations can kick in (progressive enhancement)
+document.body.classList.add('js-loaded');
+
 // ==================== Auto Year ====================
 document.getElementById("year").textContent = new Date().getFullYear();
 

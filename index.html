@@ -8,7 +8,22 @@
     content="Marouane Sadoune | Full-Stack Developer portfolio — Java, Spring Boot, Laravel, Angular, React, Node.js">
   <meta name="keywords" content="Marouane Sadoune, Full-Stack Developer, Web Developer, Software Engineer">
   <meta name="author" content="Marouane Sadoune">
-  <title>Mon Porfolio</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Marouane Sadoune | Full-Stack Developer">
+  <meta property="og:description"
+    content="Full-Stack Developer portfolio — Laravel, Angular, React, Node.js, Java, Spring Boot">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/portfoloi_logoo.png">
+
+  <title>Marouane Sadoune | Full-Stack Developer</title>
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 
@@ -18,32 +33,41 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-9G4BP7NZZ7');
   </script>
 
-  <!-- <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
 </head>
 
 <body>
   <div id="header">
+    <div class="hero-gradient"></div>
     <div class="container">
       <nav>
-        <img src="images/portfoloi_logoo.png" alt="" />
+        <img src="images/portfoloi_logoo.png" alt="Marouane Sadoune Logo" />
         <ul id="sidemenu">
           <li><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#skills-section">Skills</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#project">Project</a></li>
           <li><a href="#contact">Contact</a></li>
           <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
         </ul>
-        <i class="fa-solid fa-list" onclick="openmenu()"></i>
+        <div style="display:flex;align-items:center;">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+          </button>
+          <i class="fa-solid fa-list" onclick="openmenu()" style="margin-left:15px;"></i>
+        </div>
       </nav>
       <div class="header-text">
         <h1>Hi, I'm <span>Marouane Sadoune</span></h1>
+        <div class="typed-container">
+          <span class="static-text">I'm a </span>
+          <span class="typed-text" id="typedText"></span>
+        </div>
         <p>A developer turning ideas into innovative solutions.</p>
         <a href="images/Marouane_Sadoune_FullStack_C_ (7).pdf" download class="btn btn2">Download CV</a>
       </div>
@@ -52,14 +76,11 @@
 
   <!-- =============================== Technologies ================================ -->
 
-  <section class="tech-section">
+  <section class="tech-section animate-on-scroll">
     <p class="tech-title">Technologies I work with</p>
-
-
 
     <div class="marquee-container">
       <div class="marquee-content">
-
         <i class="devicon-react-original"></i>
         <i class="devicon-html5-plain"></i>
         <i class="devicon-css3-plain"></i>
@@ -84,19 +105,65 @@
         <i class="devicon-mongodb-plain"></i>
         <i class="devicon-docker-plain"></i>
         <i class="devicon-laravel-plain"></i>
-
       </div>
     </div>
+  </section>
 
+  <!-- =============================== Skills ================================ -->
+
+  <section class="skills-section" id="skills-section">
+    <div class="container">
+      <p class="experience-label">My Toolkit</p>
+      <h1 class="sub-title">Skills</h1>
+    </div>
+    <div class="skills-grid animate-on-scroll">
+      <div class="skill-category">
+        <div class="skill-category-icon"><i class="fa-solid fa-code"></i></div>
+        <h3>Frontend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-icon"><i class="fa-solid fa-server"></i></div>
+        <h3>Backend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">REST API</span>
+          <span class="skill-tag">Spring Boot</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-icon"><i class="fa-solid fa-database"></i></div>
+        <h3>Database & DevOps</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Linux</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- =============================== About ================================ -->
 
-  <div class="about" id="about">
+  <div class="about animate-on-scroll" id="about">
     <div class="container">
       <div class="row">
         <div class="about-col-1">
-          <img src="images/ChatGPT Image Jan 9, 2026, 11_55_09 PM.png" alt="" />
+          <img src="images/ChatGPT Image Jan 9, 2026, 11_55_09 PM.png" alt="Photo of Marouane Sadoune"
+            loading="lazy" />
         </div>
         <div class="about-col-2">
           <p class="experience-label">Who Am I ?</p>
@@ -116,9 +183,10 @@
       </div>
     </div>
   </div>
+
   <!-- ------------------ experience ------------------ -->
 
-  <div class="portfolio-container">
+  <div class="portfolio-container animate-on-scroll">
     <div class="container">
       <p class="experience-label">Experience</p>
       <h1 class="sub-title">Experience</h1>
@@ -171,14 +239,10 @@
             <h4>✨ Key Achievements</h4>
             <ul>
               <li>Development of a robust backend using the MVC architecture with Laravel.</li>
-
               <li>Implementation of dynamic HR functionalities (employee management, leave, roles, and permissions) with
                 Livewire.</li>
-
               <li>Creation of modern, responsive, and high-performance interfaces using Tailwind CSS.</li>
-
               <li>Database and business logic management (employees, leave, roles, permissions, etc.).</li>
-
               <li>Strengthening of full-stack development skills and best software practices.</li>
             </ul>
           </div>
@@ -198,14 +262,14 @@
             <h3 class="company-name">Al Omran</h3>
             <p class="job-status">Internship</p>
             <div class="card-meta">
-              <span class="meta-tag">📅 01 July 2025 - 01 September 2025</span>
+              <span class="meta-tag">📅 01 July 2024 - 01 September 2024</span>
               <span class="meta-tag">📍 Oujda</span>
             </div>
           </div>
 
           <div class="tech-overlap">
-            <span class="tech-badge">IntrusionDetection</span>
-            <span class="tech-badge">NetworkSecurity</span>
+            <span class="tech-badge">Intrusion Detection</span>
+            <span class="tech-badge">Network Security</span>
             <span class="tech-badge">SNORT</span>
           </div>
         </div>
@@ -230,16 +294,13 @@
               <li>Development and testing of custom SNORT rules to detect suspicious activity.</li>
             </ul>
           </div>
-          <!-- <div class="action-buttons">
-        <button class="btn btn-primary">View Diploma ↗</button>
-      </div> -->
         </div>
       </section>
     </div>
   </div>
 
   <!-- ====================Education ========================== -->
-  <div class="experience" id="education-section">
+  <div class="experience animate-on-scroll" id="education-section">
     <div class="container">
       <p class="experience-label">LEARNING JOURNEY</p>
       <h1 class="sub-title">Education</h1>
@@ -249,7 +310,7 @@
   </div>
   <div class="timeline-wrapper">
     <div class="timeline">
-      <div class="timeline-item timeline-left">
+      <div class="timeline-item timeline-left animate-on-scroll">
         <div class="timeline-card">
           <span class="badge current"><span class="pulse"></span> Current</span>
           <span class="timeline-date">oct 2025 — Present</span>
@@ -267,7 +328,7 @@
         </div>
       </div>
 
-      <div class="timeline-item timeline-right">
+      <div class="timeline-item timeline-right animate-on-scroll">
         <div class="timeline-card">
           <span class="timeline-date">oct 2024 — juin 2025</span>
           <h3 class="timeline-title">Bac+3, Ingénierie des Systèmes Informatiques</h3>
@@ -280,14 +341,13 @@
             <span class="tag">OOP</span>
             <span class="tag">MVC</span>
             <span class="tag">C</span>
-            <span class="tag">Design patern</span>
+            <span class="tag">Design Patterns</span>
             <span class="tag">PHP</span>
-
           </div>
         </div>
       </div>
 
-      <div class="timeline-item timeline-left">
+      <div class="timeline-item timeline-left animate-on-scroll">
         <div class="timeline-card">
           <span class="timeline-date">oct 2022 — juin 2024</span>
           <h3 class="timeline-title">DTS, Infrastructure Digitale option Système et Réseau</h3>
@@ -306,9 +366,8 @@
     </div>
   </div>
 
-  </div>
   <!-- ====================Services ========================== -->
-  <div class="services" id="services">
+  <div class="services animate-on-scroll" id="services">
     <div class="container">
       <p class="experience-label">What i do ?</p>
       <h1 class="sub-title">My Services</h1>
@@ -352,21 +411,22 @@
       </div>
     </div>
   </div>
+
   <!-- ============================== portfolio ----------------- -->
 
-  <div class="portfolio" id="project">
+  <div class="portfolio animate-on-scroll" id="project">
     <div class="container">
       <p class="experience-label">Project that make an impact.</p>
       <div class="sub-title">My work</div>
-      <p class="description">A selection of my recent work,from complex web application to innovative tool's that solve
-        real-world problem.</p>
+      <p class="description">A selection of my recent work, from complex web applications to innovative tools that solve
+        real-world problems.</p>
       <div class="work-list">
         <div class="work">
           <a href="https://github.com/marouane-sadoune/gestrh" class="github-icon" target="_blank"><i
               class="fa-brands fa-github"></i></a>
           <div class="work-inner">
             <div class="work-front">
-              <img src="images/Screen04.png" alt="" />
+              <img src="images/Screen04.png" alt="GESTRH - Human Resources Management Application" loading="lazy" />
               <div class="layer">
                 <h3>Gestrh</h3>
               </div>
@@ -385,7 +445,7 @@
               class="fa-brands fa-github"></i></a>
           <div class="work-inner">
             <div class="work-front">
-              <img src="images/das.png" alt="" />
+              <img src="images/das.png" alt="Talent-IQ - Interview Platform with Video Calls" loading="lazy" />
               <div class="layer">
                 <h3>SkillCode</h3>
               </div>
@@ -404,14 +464,14 @@
               class="fa-brands fa-github"></i></a>
           <div class="work-inner">
             <div class="work-front">
-              <img src="images/phenix.png" alt="" />
+              <img src="images/phenix.png" alt="Phenix - Moroccan Streetwear E-commerce Store" loading="lazy" />
               <div class="layer">
                 <h3>Phenix</h3>
               </div>
             </div>
             <div class="work-back">
               <h3>Phenix</h3>
-              <p> e-commerce storefront for PHENIX, a Moroccan streetwear
+              <p>E-commerce storefront for PHENIX, a Moroccan streetwear
                 & luxury fashion brand. This wasn't a template — it was a headless, fully custom experience built from
                 scratch.</p>
               <a href="https://phnx-eight.vercel.app/" class="flip-btn">View</a>
@@ -420,20 +480,41 @@
         </div>
       </div>
       <a href="https://github.com/marouane-sadoune?tab=repositories" class="btn"><i
-          class="fa-brands fa-github fa-fade"></i> See other project</a>
+          class="fa-brands fa-github fa-fade"></i> See other projects</a>
     </div>
   </div>
 
+  <!-- ---------------- Testimonials ------------------- -->
+  <section class="testimonials-section animate-on-scroll">
+    <p class="experience-label">What People Say</p>
+    <h1 class="sub-title">Testimonials</h1>
+    <div class="testimonial-card">
+      <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+      <blockquote>
+        "Marouane demonstrated exceptional dedication and strong technical skills during his internship.
+        He quickly adapted to our tech stack and delivered a complete HRM system that exceeded our expectations.
+        His problem-solving abilities and collaborative spirit make him a valuable asset to any team."
+      </blockquote>
+      <div class="testimonial-author">
+        <div class="testimonial-author-info">
+          <h4>Internship Supervisor</h4>
+          <span>Technologica</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ---------------- cta section ------------------- -->
-  <div class="cta-section">
+  <div class="cta-section animate-on-scroll">
     <div class="container">
       <h2>Open to new challenges.<br />Let's build the future!</h2>
+      <a href="#contact" class="cta-btn">Get In Touch →</a>
     </div>
   </div>
 
   <!-- ---------------- contact ------------------- -->
 
-  <div id="contact">
+  <div id="contact" class="animate-on-scroll">
     <div class="container">
       <div class="row">
         <div class="contact-left">
@@ -450,42 +531,53 @@
             </a>
           </p>
           <div class="social-icon">
-            <a href=""><i class="fa-brands fa-linkedin fa-fade"></i></a>
-            <a href=""><i class="fa-brands fa-github fa-fade"></i></a>
-            <a href=""><i class="fa-brands fa-stack-overflow fa-fade"></i></a>
+            <a href="https://linkedin.com/in/marouane-sadoune" target="_blank" aria-label="LinkedIn"><i
+                class="fa-brands fa-linkedin fa-fade"></i></a>
+            <a href="https://github.com/marouane-sadoune" target="_blank" aria-label="GitHub"><i
+                class="fa-brands fa-github fa-fade"></i></a>
           </div>
           <a href="images/Marouane_Sadoune_FullStack_C_ (7).pdf" class="btn btn3">Download CV</a>
         </div>
         <div class="contact-right">
-          <form action="https://formspree.io/f/mojnrpqy" method="POST">
-            <p class="description">Whether you're looking build a new website, improve
-              your existing, or bring a unique project to life, Im here </p>
-            <p>
-              <label>Full Name :</label>
-              <input type="text" name="Name" placeholder="What's your name" />
-              <label>
-                Your email:
-                <input type="email" name="email" placeholder="exemple@email.com" required>
-              </label>
-              <label>
-                Your message:
-                <textarea name="Message" id="Message" rows="6" placeholder="Tell me about your project"
-                  required></textarea>
-              </label>
-              <!-- your other form fields go here -->
-              <button type="submit" class="btn btn4">Send</button>
+          <form id="contact-form" action="https://formspree.io/f/mojnrpqy" method="POST">
+            <p class="description">Whether you're looking to build a new website, improve
+              your existing platform, or bring a unique project to life, I'm here to help.</p>
+            <label>Full Name :</label>
+            <input type="text" name="Name" placeholder="What's your name" required />
+            <label>Your email:</label>
+            <input type="email" name="email" placeholder="example@email.com" required>
+            <label>Your message:</label>
+            <textarea name="Message" id="Message" rows="6" placeholder="Tell me about your project"
+              required></textarea>
+            <button type="submit" class="btn btn4">Send</button>
+            <div id="formMessage" class="form-message"></div>
           </form>
         </div>
-
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
   <div class="copyright">
+    <nav class="footer-sitemap">
+      <a href="#header">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills-section">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#project">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-divider"></div>
     <p>
-      Copyright &copy; <span id="year"></span> Marouane Sadoune. All rights
-      reserved.
+      Copyright &copy; <span id="year"></span> Marouane Sadoune. All rights reserved.
     </p>
   </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <script src="main.js"></script>
 </body>
 
